@@ -1,8 +1,9 @@
 import pygame
 import random
 import os
+import sys
 
-# 👉 IMPORT PAUSE SYSTEM
+#IMPORT PAUSE SYSTEM
 from pause import handle_pause_events, draw_pause, handle_mouse_click
 
 pygame.init()
@@ -21,12 +22,18 @@ GREEN = (0, 255, 0)
 RED = (255, 50, 50)
 WHITE = (240, 240, 240)
 
-#PATH
-BASE_DIR = os.path.dirname(__file__)
+# PATH FIX FOR EXE
+def resource_path(filename):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, filename)
 
 #LOAD IMAGE
 def load_image(name):
-    path = os.path.join(BASE_DIR, name)
+    path = resource_path(name)
     if os.path.exists(path):
         img = pygame.image.load(path)
         return pygame.transform.scale(img, (WIDTH, HEIGHT))
@@ -41,7 +48,7 @@ GAMEOVER_IMG = load_image("end.jpg")
 
 #LOAD SOUND
 def load_sound(name):
-    path = os.path.join(BASE_DIR, name)
+    path = resource_path(name)
     if os.path.exists(path):
         return pygame.mixer.Sound(path)
     else:
@@ -52,7 +59,7 @@ EAT_SOUND = load_sound("eat.wav")
 GAMEOVER_SOUND = load_sound("gameover.wav")
 
 #BACKGROUND MUSIC
-bg_music_path = os.path.join(BASE_DIR, "bg.mp3")
+bg_music_path = resource_path("bg.mp3")
 if os.path.exists(bg_music_path):
     pygame.mixer.music.load(bg_music_path)
     pygame.mixer.music.set_volume(0.5)
@@ -60,12 +67,12 @@ if os.path.exists(bg_music_path):
 
 #FONT
 try:
-    font = pygame.font.Font("PressStart2P.ttf", 18)
+    font = pygame.font.SysFont("Arial", 18)
 except:
     font = pygame.font.SysFont("consolas", 20)
 
 #HIGH SCORE
-HS_FILE = os.path.join(BASE_DIR, "highscore.txt")
+HS_FILE = resource_path("highscore.txt")
 if os.path.exists(HS_FILE):
     with open(HS_FILE, "r") as f:
         high_score = int(f.read())
@@ -143,7 +150,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        # 🖱️ MOUSE CLICK TO START GAME (NEW ADD)
+        #MOUSE CLICK TO START GAME
         if state == "WELCOME" and event.type == pygame.MOUSEBUTTONDOWN:
             state = "PLAYING"
 
@@ -177,7 +184,7 @@ while running:
                     state = "PLAYING"
                     pygame.mixer.music.play(-1)
 
-        # 🖱️ MOUSE CLICK FOR PAUSE
+        #MOUSE CLICK FOR PAUSE
         if state == "PAUSE" and event.type == pygame.MOUSEBUTTONDOWN:
             state, snake, direction, food, score = handle_mouse_click(
                 pygame.mouse.get_pos(),
