@@ -114,7 +114,10 @@ except:
     font = pygame.font.SysFont("arial", 20)
 
 # HIGH SCORE
-HS_FILE = resource_path("highscore.txt")
+HS_FILE = os.path.join(
+    os.environ["APPDATA"],
+    "BlackMamba_highscore.txt"
+)
 if os.path.exists(HS_FILE):
     with open(HS_FILE, "r") as f:
         try:
@@ -127,7 +130,7 @@ else:
 
 def reset_game():
     global spawn_protection
-    spawn_protection = 180  # FIX: 3 second safe time
+    spawn_protection = 180
 
     snake = []
     start_x = 300
@@ -388,7 +391,7 @@ def check_collision(snake):
             dy = head[1] - segment[1]
             distance = math.sqrt(dx * dx + dy * dy)
 
-            if distance < 7:   # FIX: 10 → 7
+            if distance < 7:
                 return True
 
     return False
@@ -673,8 +676,25 @@ while running:
     elif state == "GAMEOVER":
         screen.blit(GAMEOVER_IMG, (0, 0))
 
-        draw_text(f"SCORE: {score}", 300, 390, (0, 255, 255))
-        draw_text(f"HIGH: {high_score}", 300, 420, (255, 0, 255))
+        score_x = WIDTH // 2 - 190
+        score_y = int(HEIGHT * 0.65)
+
+        high_x = WIDTH // 2 - 190
+        high_y = int(HEIGHT * 0.70)
+
+        draw_text(
+            f"SCORE: {score}",
+            score_x,
+            score_y,
+            (0, 255, 255)
+        )
+
+        draw_text(
+            f"HIGH: {high_score}",
+            high_x,
+            high_y,
+            (255, 0, 255)
+        )
 
     pygame.display.update()
     clock.tick(60)
