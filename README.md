@@ -100,7 +100,8 @@ The game automatically saves your highest score and loads it the next time you p
 <img width="1918" height="987" alt="Screenshot 2026-06-04 095228" src="https://github.com/user-attachments/assets/d3d96b1b-ecce-4496-91bd-27da9a36eab4" />
 
 ![Game Over]
-<img width="1919" height="1015" alt="Screenshot 2026-06-04 094153" src="https://github.com/user-attachments/assets/27a00e19-cd45-4975-b2b8-6334841883f0" />
+<img width="1913" height="992" alt="Screenshot 2026-06-07 234545" src="https://github.com/user-attachments/assets/9cea9af2-1c6e-4dd6-a438-d79f1b3b2ab8" />
+
 
 
 ---
@@ -109,10 +110,6 @@ The game automatically saves your highest score and loads it the next time you p
 
 Taslimul Hasan
 
-GitHub: https://github.com/Taslimul41
 
 ---
 
-## 📄 License
-
-This project is for educational and personal learning purposes.
