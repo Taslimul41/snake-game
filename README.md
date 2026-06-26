@@ -14,7 +14,8 @@ and a polished user experience.
 - Glowing fruit effects
 - Animated fireflies background
 - Background music and sound effects
-- Keyboard Controls 
+- Keyboard Controls
+- WASD control 
 - On-screen touch/mouse controls
 - Pause Menu (Resume, New Game, Quit)
 - High Score Saving System
@@ -50,6 +51,14 @@ and a polished user experience.
 | ↓ | Move Down |
 | ← | Move Left |
 | → | Move Right |
+
+| Key | Action |
+|------|--------|
+| W | Move Up ⬆️ |
+| A | Move Left ⬅️ |
+| S | Move Down ⬇️ |
+| D | Move Right ➡️ |
+
 | Space | Pause / Resume |
 | Enter | Select Pause Menu Option |
 | On-Screen Buttons | Control Snake Direction |
@@ -90,16 +99,16 @@ The game automatically saves your highest score and loads it the next time you p
 ## 📷 Screenshots
 
 
-![Welcome Screen]
+Welcome Screen
 <img width="1919" height="994" alt="Screenshot 2026-06-04 093900" src="https://github.com/user-attachments/assets/006b7125-f1bb-41c8-bffe-ed9ed0eb3617" />
 
-![Gameplay]
+Gameplay
 <img width="1918" height="986" alt="Screenshot 2026-06-04 095254" src="https://github.com/user-attachments/assets/69bc885a-116d-4180-a862-4a03f8114e89" />
 
-![Pause menu]
+Pause menu
 <img width="1918" height="987" alt="Screenshot 2026-06-04 095228" src="https://github.com/user-attachments/assets/d3d96b1b-ecce-4496-91bd-27da9a36eab4" />
 
-![Game Over]
+Game Over
 <img width="1913" height="992" alt="Screenshot 2026-06-07 234545" src="https://github.com/user-attachments/assets/9cea9af2-1c6e-4dd6-a438-d79f1b3b2ab8" />
 
 
